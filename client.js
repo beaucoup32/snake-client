@@ -7,8 +7,15 @@ const connect = (data) => {
   });
 
   conn.on("connect", () => {
+
     console.log("Successfully Connected to Game Server.");
     conn.write('Name: DON');
+
+    // setInterval(() => {
+
+    //   conn.write('Move: up');
+    // }, 80);
+
   });
   // interpret incoming data as text
   conn.setEncoding("utf8");
