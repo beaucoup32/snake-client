@@ -1,6 +1,7 @@
 
 const { stdin } = require('process');
 
+
 let connection;
 
 const setupInput = (conn) => {
@@ -13,29 +14,54 @@ const setupInput = (conn) => {
 };
 
 const handleUserInput = (input) => {
+
   if (input === '\u0003') {
     process.exit();
   }
 
-  if (input.toLowerCase() == 'w') {
-    console.log(`You pressed ${input}`);
+  if (input == 'w') {
+    //console.log(`You pressed ${input}`);
     connection.write('Move: up');
+    stdin.resume();
   }
 
-  if (input.toLowerCase() == 'a') {
-    console.log(`You pressed ${input}`);
+  if (input == 'a') {
+    //console.log(`You pressed ${input}`);
     connection.write('Move: left');
+    stdin.resume();
   }
 
-  if (input.toLowerCase() == 's') {
-    console.log(`You pressed ${input}`);
+  if (input == 's') {
+    //console.log(`You pressed ${input}`);
     connection.write('Move: down');
+    stdin.resume();
   }
 
-  if (input.toLowerCase() == 'd') {
-    console.log(`You pressed ${input}`);
-    connection.write('Move: right');
+  if (input == 'd') {
+    //console.log(`You pressed ${input}`);
+    connection.write('Move: right')
+    stdin.resume();
   }
+
+  if (input === 'j') {
+    
+    connection.write(`Say: VidiVici`);
+    stdin.resume(); 
+  }
+
+  if (input === 'k') {
+    
+    connection.write(`Say: Bite Me!`);
+    stdin.resume(); 
+  }
+
+  if (input === 'l') {
+    
+    connection.write(`Say: SsssSSSSsssSSs..`);
+    stdin.resume(); 
+  }
+
+  //console.log(input);
 }
 
 stdin.on('data', handleUserInput);
